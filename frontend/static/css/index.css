@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  background-color: red;
+  height: 100%;
+}
+
+#sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  background: #32373d;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+}
+/*# sourceMappingURL=index.css.map */
