@@ -8,12 +8,14 @@ export default class Sidebar extends Component {
 
     render() {
         return (
-            <nav id="sidebar">
-                <ul className="list-unstyled components mb-5">
-                    <li>Hello</li>
-                    <li>World</li>
-                    <li>HIHIHI</li>
-                </ul>
+            <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+                <div className="sidebar-sticky">
+                    <ul className="nav flex-column">
+                        <li className="nav-item" >Hello</li>
+                        <li className="nav-item" >World</li>
+                        <li className="nav-item" >HIHIHI</li>
+                    </ul>
+                </div>
             </nav>
             
         )
