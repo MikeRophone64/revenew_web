@@ -7,6 +7,5 @@ import revenew.api_views
 app_name = "revenew"
 
 urlpatterns = [
-    path('', views.index),
-    path('api/v1/hotels', revenew.api_views.HotelList.as_view()),
+    path('hotels', revenew.api_views.HotelList.as_view()),
 ]
