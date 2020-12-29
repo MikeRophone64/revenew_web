@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class HotelCategory(models.Model):
     class Meta:
         verbose_name = "Hotel Category"
@@ -13,6 +13,10 @@ class HotelCategory(models.Model):
 
 
 class Hotels(models.Model):
+    """
+    All Hotels offered by CRO
+    """
+    
     class Meta:
         verbose_name_plural = "Hotels"
     
@@ -25,11 +29,29 @@ class Hotels(models.Model):
         return self.name
 
 
+class Season(models.Model):
+    """
+    Seasons according to DLP pricing seasons
+    """
+
+    class Meta:
+        verbose_name_plural = "Seasons"
+
+    title = models.CharField(max_length=32, verbose_name="Season Name")
+    start_date = models.DateField(verbose_name="Start")
+    end_date = models.DateField(verbose_name="End")
+
+    def __str__(self):
+        return self.title
+
+
 class CityTax(models.Model):
+    
     class Meta:
         verbose_name = "City Tax"
         verbose_name_plural = "City Taxes"
         
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)
     hotel = models.OneToOneField(Hotels, on_delete=models.CASCADE)
     EUR = models.DecimalField(max_digits=5, decimal_places=2)
     GBP = models.DecimalField(max_digits=5, decimal_places=2)
