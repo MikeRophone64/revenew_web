@@ -16,7 +16,7 @@ class Hotels(models.Model):
     """
     All Hotels offered by CRO
     """
-    
+
     class Meta:
         verbose_name_plural = "Hotels"
     
@@ -45,6 +45,22 @@ class Season(models.Model):
         return self.title
 
 
+class ProcessingFees(models.Model):
+    class Meta:
+        verbose_name_plural = "Processing Fees"
+        
+    title = models.CharField(max_length=32)
+    EUR = models.DecimalField(max_digits=5, decimal_places=2)
+    DKK = models.DecimalField(max_digits=5, decimal_places=2)
+    CHF = models.DecimalField(max_digits=5, decimal_places=2)
+    GBP = models.DecimalField(max_digits=5, decimal_places=2)
+    USD = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return self.title
+
+
+
 class CityTax(models.Model):
     
     class Meta:
@@ -52,12 +68,12 @@ class CityTax(models.Model):
         verbose_name_plural = "City Taxes"
         
     season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)
-    hotel = models.OneToOneField(Hotels, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE)
     EUR = models.DecimalField(max_digits=5, decimal_places=2)
+    DKK = models.DecimalField(max_digits=5, decimal_places=2)
+    CHF = models.DecimalField(max_digits=5, decimal_places=2)
     GBP = models.DecimalField(max_digits=5, decimal_places=2)
     USD = models.DecimalField(max_digits=5, decimal_places=2)
-    CHF = models.DecimalField(max_digits=5, decimal_places=2)
-    DKK = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
         return "Tax:" + self.hotel.name
