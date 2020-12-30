@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 export default class Content extends Component {
@@ -8,10 +10,9 @@ export default class Content extends Component {
 
     render() {
         return (
-            <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <Grid item xs={9}>
                 <h1>CONTENT GOES HERE</h1>
-            </main>
-            
+            </Grid>
         )
     }
 }

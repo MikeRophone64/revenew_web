@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import Grid from '@material-ui/core/Grid';
 
 import HeaderNav from './HeaderNav';
 import Sidebar from './Sidebar';
@@ -34,12 +35,16 @@ class App extends Component {
         return (
             <div >  
                 <HeaderNav />
-                <div className="container-fluid">
-                    <div className="row">
+                    <Grid 
+                        container
+                        direction="row"
+                        alignItems="stretch"
+                        justify="flex-start"
+                        spacing={5}
+                    >
                         <Sidebar />
                         <Content />
-                    </div>
-                </div>
+                    </Grid>
             </div>
         )
     }

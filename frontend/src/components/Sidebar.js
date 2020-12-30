@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
 
@@ -48,8 +48,8 @@ export default class Sidebar extends Component {
     render() {
 
         return (
-            <nav className="col-md-2 d-none d-md-block bg-light sidebar">
-                <div className="sidebar-sticky">
+            <Grid item xs={3}>
+                <div className="sidebar sidebar-sticky">
                     <div>
                         <MyDate />
                         <TextField
@@ -85,7 +85,7 @@ export default class Sidebar extends Component {
                         />
                     </div>
                 </div>
-            </nav>
+            </Grid>
             
         )
     }
