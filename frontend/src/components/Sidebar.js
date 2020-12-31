@@ -22,34 +22,26 @@ export default class Sidebar extends Component {
         const children = document.getElementById("num_children");
 
         // Check adults
-        if (adults.value > 6) {
-            adults.value = 6;
-        } else if (adults.value < 0) {
-            adults.value = 0;
-        }
+        adults.value = adults.value > 6 ? 6 : adults.value;
+        adults.value = adults.value < 0 ? 0 : adults.value;
 
         // Check teens
-        if (teens.value > 6) {
-            teens.value = 6;
-        } else if (teens.value < 0) {
-            teens.value = 0;
-        }
+        teens.value = teens.value > 6 ? 6 : teens.value;
+        teens.value = teens.value < 0 ? 0 : teens.value;
 
         // Check children
-        if (children.value > 6) {
-            children.value = 6;
-        } else if (children.value < 0) {
-            children.value = 0;
-        }
-
+        children.value = children.value > 6 ? 6 : children.value;
+        children.value = children.value < 0 ? 0 : children.value;
 
     }
     
     render() {
 
         return (
-            <Grid item xs={3}>
-                <div className="sidebar sidebar-sticky">
+            <Grid 
+                item 
+                xs={3} 
+            >
                     <div>
                         <MyDate />
                         <TextField
@@ -57,13 +49,6 @@ export default class Sidebar extends Component {
                             id="num_adults"
                             label="Adults"
                             type="number"
-                            // Add Mix Max later (messes with CSS)
-                            // InputProps={{ 
-                            //     inputProps: {
-                            //         min:0,
-                            //         max:6
-                            //     }
-                            // }}
                             defaultValue="1"
                         />
                         <TextField
@@ -84,7 +69,6 @@ export default class Sidebar extends Component {
                             type="number"
                         />
                     </div>
-                </div>
             </Grid>
             
         )

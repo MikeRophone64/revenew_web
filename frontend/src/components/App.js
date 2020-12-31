@@ -14,38 +14,24 @@ class App extends Component {
         };
     }
 
-    componentDidMount() {
-        fetch('/api/hotels?format=json')
-        .then(response => response.json())
-        .then(data => {
-            const hotels = data.map(hotel => {
-                console.log(hotel);
-                return hotel;
-            })
-            
-            this.setState({
-                hotelList: hotels
-            });
-        });
-
-    }
 
     render() {
 
         return (
-            <div >  
+            <Grid>
                 <HeaderNav />
-                    <Grid 
-                        container
-                        direction="row"
-                        alignItems="stretch"
-                        justify="flex-start"
-                        spacing={5}
-                    >
-                        <Sidebar />
-                        <Content />
-                    </Grid>
-            </div>
+                <Grid 
+                    container
+                    direction="row"
+                    alignItems="stretch"
+                    justify="flex-start"
+                    spacing={3}
+                    className="content"
+                >
+                    <Sidebar />
+                    <Content />
+                </Grid>
+            </Grid>
         )
     }
 }
