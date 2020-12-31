@@ -8,12 +8,14 @@ import Typography from '@material-ui/core/Typography';
 
 
 export default class HotelCard extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
 
     return (
-      <Grid xs={3}>
-        {this.props.disneyHotels.map(hotel => (
+      <Grid lg={3}>
           <Card>
           <CardActionArea>
             <CardMedia
@@ -22,15 +24,14 @@ export default class HotelCard extends Component {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                {hotel.name}
+                {this.props.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Keys: {hotel.stars}
+                Keys: 
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
-        ))}
       </Grid>
     );
   }

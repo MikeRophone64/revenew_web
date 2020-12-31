@@ -1,3 +1,5 @@
+$border-color: rgb(200, 200, 200);
+
 html, body {
     height: 100%;
     margin: 0;
@@ -10,16 +12,11 @@ html, body {
 }
 
 .sidebar {
-    background-color: blue;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding-left: 15px;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    // background-color: blue;
+    border-right: solid 1px $border-color;
+    overflow: hidden;
 }
 
 .content {
-    margin: 0px !important;
+    overflow: scroll;
 }

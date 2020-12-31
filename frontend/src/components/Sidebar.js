@@ -3,6 +3,7 @@ import React, { Component, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
+import { Container } from '@material-ui/core';
 
 export default class Sidebar extends Component {
     constructor(props) {
@@ -38,11 +39,8 @@ export default class Sidebar extends Component {
     render() {
 
         return (
-            <Grid 
-                item 
-                xs={3} 
-            >
-                    <div>
+            <Grid item lg={3} className="sidebar">
+                <Container fixed>
                         <MyDate />
                         <TextField
                             onChange={this.checkPartyMix}
@@ -68,9 +66,8 @@ export default class Sidebar extends Component {
                             label="Room Price"
                             type="number"
                         />
-                    </div>
+                </Container>
             </Grid>
-            
         )
     }
 }

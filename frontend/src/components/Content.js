@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import HotelCard from './HotelCard';
 import { eachHourOfIntervalWithOptions } from 'date-fns/fp';
+import { Container } from '@material-ui/core';
 
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
@@ -30,13 +31,12 @@ export default class Content extends Component {
 
     render() {
         return (
-            <Grid item xs={9} >
-                <Grid 
-                    container
-                    spacing={5}
-                >
-                    <HotelCard disneyHotels={this.state.hotelList}/>
-                </Grid>
+            <Grid item lg={9} >
+                <Container>
+                    {this.state.hotelList.map(hotel => (
+                        <HotelCard name={hotel.name}/>
+                    ))}
+                </Container>
             </Grid>
         )
     }
