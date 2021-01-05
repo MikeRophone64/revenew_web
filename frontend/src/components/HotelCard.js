@@ -16,7 +16,7 @@ export default class HotelCard extends Component {
 
     return (
       <Grid item lg={4} md={6} xs={12}>
-        <Card>
+        <Card onClick={() => this.props.handleClick(this.props.hotel.name)}>
           <CardActionArea>
             <CardMedia
               component="img"

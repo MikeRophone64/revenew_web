@@ -29,11 +29,15 @@ export default class Content extends Component {
         });
     }
 
+    handleTax = hotel => {
+        return alert(`You clicked ${hotel}.`);
+    }
+
     render() {
         return (
             <Grid container spacing={3}>
                     {this.state.hotelList.map((hotel, i) => (
-                        <HotelCard hotel={hotel}/>
+                        <HotelCard hotel={hotel} handleClick={this.handleTax}/>
                     ))
                     }
             </Grid>
