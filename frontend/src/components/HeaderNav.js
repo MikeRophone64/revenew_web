@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Logo from '../../static/images/ReveNewLogo.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,10 +27,7 @@ export default function ButtonAppBar() {
   return (
       <AppBar position="fixed" color="default">
         <Toolbar>
-            {/* Image goes here */}
-          <Typography variant="h6" className={classes.title}>
-            ReveNew
-          </Typography>
+          <img src={Logo}/>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

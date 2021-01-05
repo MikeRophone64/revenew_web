@@ -1,9 +1,10 @@
 import React, { Component, useState } from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 
 export default class Sidebar extends Component {
     constructor(props) {

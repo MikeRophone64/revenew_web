@@ -15,7 +15,7 @@ export default class HotelCard extends Component {
   render() {
 
     return (
-      <Grid item md={4} xs={12}>
+      <Grid item lg={4} md={6} xs={12}>
         <Card>
           <CardActionArea>
             <CardMedia
