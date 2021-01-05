@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import MainInterface from "./MainInterface"
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
@@ -21,15 +22,7 @@ class App extends Component {
         return (
             <Container fixed disableGutters={true}>
                 <HeaderNav />
-                <Grid 
-                    container
-                    direction="row"
-                    alignItems="stretch"
-                    justify="flex-start"
-                >
-                    <Sidebar className="sidebar"/>
-                    <Content className="content"/>
-                </Grid>
+                <MainInterface />
             </Container>
         )
     }

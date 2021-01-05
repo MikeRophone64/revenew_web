@@ -8,12 +8,16 @@ html, body {
   height: 100vh;
 }
 
+.main-content {
+  margin-top: 65px;
+}
+
 .sidebar {
-  border-right: solid 1px #c8c8c8;
-  overflow: hidden;
+  background-color: blue;
 }
 
 .content {
   overflow: scroll;
+  margin: 0px;
 }
 /*# sourceMappingURL=index.css.map */

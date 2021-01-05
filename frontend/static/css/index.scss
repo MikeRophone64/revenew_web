@@ -11,12 +11,15 @@ html, body {
     height: 100vh;
 }
 
+.main-content {
+    margin-top: 65px;
+}
+
 .sidebar {
-    // background-color: blue;
-    border-right: solid 1px $border-color;
-    overflow: hidden;
+    background-color: blue;
 }
 
 .content {
     overflow: scroll;
+    margin: 0px
 }

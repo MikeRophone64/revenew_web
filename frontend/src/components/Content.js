@@ -31,12 +31,11 @@ export default class Content extends Component {
 
     render() {
         return (
-            <Grid item lg={9} >
-                <Container>
-                    {this.state.hotelList.map(hotel => (
+            <Grid container spacing={3}>
+                    {this.state.hotelList.map((hotel, i) => (
                         <HotelCard hotel={hotel}/>
-                    ))}
-                </Container>
+                    ))
+                    }
             </Grid>
         )
     }

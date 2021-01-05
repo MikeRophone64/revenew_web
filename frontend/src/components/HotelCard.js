@@ -11,22 +11,21 @@ export default class HotelCard extends Component {
   constructor(props) {
     super(props)
   }
-
+ 
   render() {
 
     return (
-      <Grid lg={3}>
-          <Card>
+      <Grid item md={4} xs={12}>
+        <Card>
           <CardActionArea>
             <CardMedia
               component="img"
-              height="140px"
+              height="100px"
               image={this.props.hotel.image}
               title={this.props.hotel.name}
             />
-            {/* <img src={this.props.hotel.image} /> */}
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h6" component="h6">
                 {this.props.hotel.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">

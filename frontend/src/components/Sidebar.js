@@ -21,6 +21,7 @@ export default class Sidebar extends Component {
         const adults = document.getElementById("num_adults");
         const teens = document.getElementById("num_teens");
         const children = document.getElementById("num_children");
+        const price = document.getElementById("room_price");
 
         // Check adults
         adults.value = adults.value > 6 ? 6 : adults.value;
@@ -34,40 +35,42 @@ export default class Sidebar extends Component {
         children.value = children.value > 6 ? 6 : children.value;
         children.value = children.value < 0 ? 0 : children.value;
 
+        // Check Price
+        price.value = price.value < 0 ? 0 : price.value;
+
     }
     
     render() {
 
         return (
-            <Grid item lg={3} className="sidebar">
-                <Container fixed>
-                        <MyDate />
-                        <TextField
-                            onChange={this.checkPartyMix}
-                            id="num_adults"
-                            label="Adults"
-                            type="number"
-                            defaultValue="1"
-                        />
-                        <TextField
-                            onChange={this.checkPartyMix}
-                            id="num_teens"
-                            label="Teens"
-                            type="number"
-                        />
-                        <TextField
-                            onChange={this.checkPartyMix}
-                            id="num_children"
-                            label="Children"
-                            type="number"
-                        />
-                        <TextField
-                            id="room_price"
-                            label="Room Price"
-                            type="number"
-                        />
-                </Container>
-            </Grid>
+            <Container>
+                <MyDate />
+                <TextField
+                    onChange={this.checkPartyMix}
+                    id="num_adults"
+                    label="Adults"
+                    type="number"
+                    defaultValue="1"
+                />
+                <TextField
+                    onChange={this.checkPartyMix}
+                    id="num_teens"
+                    label="Teens"
+                    type="number"
+                />
+                <TextField
+                    onChange={this.checkPartyMix}
+                    id="num_children"
+                    label="Children"
+                    type="number"
+                />
+                <TextField
+                    onChange={this.checkPartyMix}
+                    id="room_price"
+                    label="Room Price"
+                    type="number"
+                />
+            </Container>
         )
     }
 }

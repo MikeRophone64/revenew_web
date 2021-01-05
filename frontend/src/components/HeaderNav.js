@@ -24,8 +24,7 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="sticky" color="default">
+      <AppBar position="fixed" color="default">
         <Toolbar>
             {/* Image goes here */}
           <Typography variant="h6" className={classes.title}>
@@ -34,6 +33,5 @@ export default function ButtonAppBar() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-    </div>
   );
 }
