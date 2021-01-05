@@ -19,15 +19,18 @@ export default class HotelCard extends Component {
           <Card>
           <CardActionArea>
             <CardMedia
-              image="/static/images/cards/contemplative-reptile.jpg"
-              title="Contemplative Reptile"
+              component="img"
+              height="140px"
+              image={this.props.hotel.image}
+              title={this.props.hotel.name}
             />
+            {/* <img src={this.props.hotel.image} /> */}
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                {this.props.name}
+                {this.props.hotel.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Keys: 
+                Keys: {this.props.hotel.stars}
               </Typography>
             </CardContent>
           </CardActionArea>

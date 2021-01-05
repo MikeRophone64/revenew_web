@@ -34,7 +34,7 @@ export default class Content extends Component {
             <Grid item lg={9} >
                 <Container>
                     {this.state.hotelList.map(hotel => (
-                        <HotelCard name={hotel.name}/>
+                        <HotelCard hotel={hotel}/>
                     ))}
                 </Container>
             </Grid>

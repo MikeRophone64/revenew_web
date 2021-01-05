@@ -24,6 +24,7 @@ class Hotels(models.Model):
     abbrev = models.CharField(max_length=16, verbose_name="Abbreviation")
     stars = models.IntegerField()
     category = models.ForeignKey(HotelCategory, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='media/', blank=True)
 
     def __str__(self):
         return self.name
