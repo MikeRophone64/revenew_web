@@ -6,19 +6,10 @@ import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
 import { Container, Typography } from '@material-ui/core';
 
-export default class Sidebar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {text: "Hello"};
-        this.changeText = this.changeText.bind(this);
-    }
 
-    changeText() {
-        const myText = this.state.text == "Hello" ? "Bye" : "Hello";
-        this.setState({ text: myText });
-    }
-
-    checkPartyMix() {
+export default function Sidebar() {
+    
+    const checkPartyMix = () => {
         const adults = document.getElementById("num_adults");
         const teens = document.getElementById("num_teens");
         const children = document.getElementById("num_children");
@@ -41,37 +32,34 @@ export default class Sidebar extends Component {
 
     }
     
-    render() {
-
-        return (
-            <Container>
-                <MyDate />
-                <TextField
-                    onChange={this.checkPartyMix}
-                    id="num_adults"
-                    label="Adults"
-                    type="number"
-                    defaultValue="1"
-                />
-                <TextField
-                    onChange={this.checkPartyMix}
-                    id="num_teens"
-                    label="Teens"
-                    type="number"
-                />
-                <TextField
-                    onChange={this.checkPartyMix}
-                    id="num_children"
-                    label="Children"
-                    type="number"
-                />
-                <TextField
-                    onChange={this.checkPartyMix}
-                    id="room_price"
-                    label="Room Price"
-                    type="number"
-                />
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <MyDate className="button-no-focus"/>
+            <TextField
+                onChange={checkPartyMix}
+                id="num_adults"
+                label="Adults"
+                type="number"
+                defaultValue="1"
+            />
+            <TextField
+                onChange={checkPartyMix}
+                id="num_teens"
+                label="Teens"
+                type="number"
+            />
+            <TextField
+                onChange={checkPartyMix}
+                id="num_children"
+                label="Children"
+                type="number"
+            />
+            <TextField
+                onChange={checkPartyMix}
+                id="room_price"
+                label="Room Price"
+                type="number"
+            />
+        </Container>
+    )
 }

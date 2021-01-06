@@ -20,4 +20,8 @@ html, body {
   overflow: scroll;
   margin: 0px;
 }
+
+.button-no-focus:focus {
+  outline: none;
+}
 /*# sourceMappingURL=index.css.map */

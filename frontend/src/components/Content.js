@@ -10,7 +10,7 @@ export default class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hotelList: []
+            d_hotelList: []
         }
     }
 
@@ -18,13 +18,14 @@ export default class Content extends Component {
         fetch('/api/hotels?format=json')
         .then(response => response.json())
         .then(data => {
-            const hotels = data.map(item => {
+            const disney_hotels = data.map(item => {
                 return item
             })
-            console.log(hotels)
+            console.log(disney_hotels)
 
             this.setState({
-                hotelList: hotels
+                d_hotelList: disney_hotels,
+                hotelList: "Hotel"
             });
         });
     }
@@ -35,8 +36,11 @@ export default class Content extends Component {
 
     render() {
         return (
-            <Grid container spacing={3}>
-                    {this.state.hotelList.map((hotel, i) => (
+            <Grid 
+                container 
+                spacing={3} 
+                alignItems="stretch">
+                    {this.state.d_hotelList.map((hotel, i) => (
                         <HotelCard hotel={hotel} handleClick={this.handleTax}/>
                     ))
                     }
