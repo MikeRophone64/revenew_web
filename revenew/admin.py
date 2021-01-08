@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CityTax, Hotels, HotelCategory, Season, ProcessingFees
+from .models import CityTax, Hotels, HotelCategory, Season, ProcessingFees, Error
 from django.db import models
 from django.forms import TextInput, Textarea
 from django.http import HttpResponseRedirect
@@ -11,6 +11,7 @@ admin.site.site_header = "ReveNew Dashboard"
 # admin.site.register(HotelCategory)
 admin.site.register(Season)
 admin.site.register(ProcessingFees)
+admin.site.register(Error)
 
 @admin.register(Hotels)
 class HotelAdmin(admin.ModelAdmin):

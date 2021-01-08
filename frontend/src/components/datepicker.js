@@ -18,10 +18,16 @@ export default function MyDate() {
     setSelectedDate(date);
   };
 
+  // Isert Max selectable date to preventfalsy db queries:
+  // useEffect to query db and get max date of seasons 
+  // pass max date to maxDate in Datepicker
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           disableToolbar
+          disablePast={true}
+          // maxDate={new Date('2021-1-25')}
           variant="inline"
           format="dd/MM/yyyy"
           margin="normal"

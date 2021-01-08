@@ -78,3 +78,11 @@ class CityTax(models.Model):
 
     def __str__(self):
         return "Tax:" + self.hotel.name
+
+
+class Error(models.Model):
+    title = models.CharField(max_length=32)
+    description = models.TextField(max_length=140)
+
+    def __str__(self):
+        return self.title
