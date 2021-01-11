@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Hotels, CityTax
+from .models import Hotels, CityTax, Season
 
 class HotelSerializer(serializers.ModelSerializer):
     category = serializers.CharField(source='category.name')
@@ -16,4 +16,10 @@ class TaxSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CityTax
+        fields = '__all__'
+
+
+class SeasonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Season
         fields = '__all__'

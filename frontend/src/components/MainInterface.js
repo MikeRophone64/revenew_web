@@ -56,7 +56,7 @@ export default function MainInterface() {
         const hotelsList = data.map(item => {
             return item
         })
-        console.log("FETCH OK")
+        console.log("FETCHING HOTELS")
         console.log(hotelsList)
         setHotels(hotelsList)
     });

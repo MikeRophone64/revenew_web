@@ -9,4 +9,5 @@ app_name = "revenew"
 urlpatterns = [
     path('hotels', revenew.api_views.HotelList.as_view()),
     path('tax/<slug:start_date>', revenew.api_views.TaxList.as_view()),
+    path('seasons', revenew.api_views.SeasonList.as_view()),
 ]

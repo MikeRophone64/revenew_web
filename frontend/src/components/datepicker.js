@@ -1,5 +1,5 @@
 import 'date-fns';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -9,25 +9,39 @@ import {
 } from '@material-ui/pickers';
 
 export default function MyDate() {
-  // The first commit of Material-UI
+
   const now = Date.now()
   const [selectedDate, setSelectedDate] = React.useState(new Date(now));
-  console.log(selectedDate)
+  const [endDate, setEndDate] = useState(new Date(now))
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  // Isert Max selectable date to preventfalsy db queries:
-  // useEffect to query db and get max date of seasons 
-  // pass max date to maxDate in Datepicker
+  useEffect(() => {
+    // fetch seasons
+    const url = 'api/seasons?format=json'
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      let maxDate = new Date(now).toISOString().split('T')[0]
+
+      // find max Date
+      for(let i = 1; i < data.length; i++) {
+        var value = data[i]['end_date'];
+        if (value > maxDate) maxDate = value;
+      }
+      setEndDate(maxDate)
+    })
+  })
+
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           disableToolbar
           disablePast={true}
-          // maxDate={new Date('2021-1-25')}
+          maxDate={endDate}
           variant="inline"
           format="dd/MM/yyyy"
           margin="normal"

@@ -2,7 +2,7 @@ from datetime import date
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
-from revenew.serializers import HotelSerializer, TaxSerializer
+from revenew.serializers import HotelSerializer, SeasonSerializer, TaxSerializer
 from revenew.models import Hotels, CityTax, Season, Error
 
 from revenew.error import catch
@@ -30,3 +30,6 @@ class TaxList(ListAPIView):
         return CityTax.objects.filter(season__title=selected_season)
 
     
+class SeasonList(ListAPIView):
+    queryset = Season.objects.all()
+    serializer_class = SeasonSerializer
