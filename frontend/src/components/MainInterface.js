@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Sidebar from './Sidebar';
 import Content from './Content';
-import HeaderNav from './HeaderNav';
 
 const drawerWidth = 240;
 
@@ -46,24 +36,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainInterface() {
   const classes = useStyles();
-
-  const [hotels, setHotels] = useState()
-
-  useEffect(() => {
-    fetch('/api/hotels?format=json')
-    .then(response => response.json())
-    .then(data => {
-        const hotelsList = data.map(item => {
-            return item
-        })
-        console.log("FETCHING HOTELS")
-        console.log(hotelsList)
-        setHotels(hotelsList)
-    });
-  }, [])
-
-
-  
 
   return (
     <div className={classes.root}>

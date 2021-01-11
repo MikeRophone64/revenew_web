@@ -1,14 +1,15 @@
 import React, { Component, useState } from 'react';
-// import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
 import { Container, Typography } from '@material-ui/core';
+import { useSelectedHotel, useSelectedCurrency } from './CalcContext';
 
 
 export default function Sidebar() {
-    
+    const selectedHotel = useSelectedHotel()
+    const selectedCurrency = useSelectedCurrency()
+
     const checkPartyMix = () => {
         const adults = document.getElementById("num_adults");
         const teens = document.getElementById("num_teens");
@@ -33,6 +34,7 @@ export default function Sidebar() {
     }
     
     return (
+        <>
         <Container>
             <MyDate className="button-no-focus"/>
             <TextField
@@ -61,5 +63,16 @@ export default function Sidebar() {
                 type="number"
             />
         </Container>
+        <Container>
+            <br />
+            <Divider />
+            <Typography>
+                Hotel: {selectedHotel}
+            </Typography>
+            <Typography>
+                Currency: {selectedCurrency}
+            </Typography>
+        </Container>
+        </>
     )
 }

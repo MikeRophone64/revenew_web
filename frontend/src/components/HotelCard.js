@@ -12,7 +12,7 @@ export default function HotelCard(props) {
   return (
     <Grid item lg={4} md={6} xs={12}>
       <Card 
-        onClick={() => props.handleClick(props.hotel.name)}
+        onClick={() => props.handleClick(props.hotel.abbrev)}
       >
         <CardActionArea>
           <CardMedia
