@@ -12,8 +12,8 @@ import Flag_GBP from '../../static/images/FlagIcons/GBP.svg';
 import Flag_CHF from '../../static/images/FlagIcons/CHF.svg';
 import Flag_DKK from '../../static/images/FlagIcons/DKK.svg';
 import Flag_USD from '../../static/images/FlagIcons/USD.svg';
-import store from '../store/store';
-import { currencyChanged } from '../store/actions';
+import configureStore from '../store/configureStore';
+import { currencyChanged } from '../store/currency';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,14 +28,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const store = configureStore();
+
 export default function HeadeNavigation() {
   const classes = useStyles();
 
   const clickHandler = (currency) => {
-    store.dispatch(currencyChanged(currency));
+    store.dispatch(currencyChanged({ selectedCurrency: currency }));
   }
 
-  console.log(store.getState())
   return (
       <AppBar position="fixed" color="default">
         <Toolbar>

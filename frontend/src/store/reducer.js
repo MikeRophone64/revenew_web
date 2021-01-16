@@ -1,9 +1,6 @@
-import * as actions from './actionsTypes';
+import { combineReducers } from 'redux';
+import selectorsReducer from './selectors';
 
-export default function reducer(state = [], action) {
-    if(action.type === actions.currencyChanged) {
-        return {...state, selectedCurrency: action.payload.selectedCurrency}
-    } else {
-        return state;
-    }
-}
+export default combineReducers({
+    selectors: selectorsReducer
+})
