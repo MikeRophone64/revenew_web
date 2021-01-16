@@ -12,6 +12,8 @@ import Flag_GBP from '../../static/images/FlagIcons/GBP.svg';
 import Flag_CHF from '../../static/images/FlagIcons/CHF.svg';
 import Flag_DKK from '../../static/images/FlagIcons/DKK.svg';
 import Flag_USD from '../../static/images/FlagIcons/USD.svg';
+import store from '../store/store';
+import { currencyChanged } from '../store/actions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,25 +31,29 @@ const useStyles = makeStyles((theme) => ({
 export default function HeadeNavigation() {
   const classes = useStyles();
 
-  
+  const clickHandler = (currency) => {
+    store.dispatch(currencyChanged(currency));
+  }
+
+  console.log(store.getState())
   return (
       <AppBar position="fixed" color="default">
         <Toolbar>
           <img src={Logo}/>
           <Grid className="currencies">
-            <IconButton aria-label="EUR" className="button-no-focus">
+            <IconButton aria-label="EUR" className="button-no-focus" onClick={() => clickHandler('EUR')}>
               <img src={Flag_EUR} alt="EUR" height="25px"/>
             </IconButton>
-            <IconButton aria-label="GBP" className="button-no-focus">
+            <IconButton aria-label="GBP" className="button-no-focus" onClick={() => clickHandler('GBP')}>
               <img src={Flag_GBP} alt="GBP" height="25px"/>
             </IconButton>
-            <IconButton aria-label="CHF" className="button-no-focus">
+            <IconButton aria-label="CHF" className="button-no-focus" onClick={() => clickHandler('CHF')}>
               <img src={Flag_CHF} alt="CHF" height="25px"/>
             </IconButton>
-            <IconButton aria-label="USD" className="button-no-focus">
+            <IconButton aria-label="USD" className="button-no-focus" onClick={() => clickHandler('USD')}>
               <img src={Flag_USD} alt="USD" height="25px"/>
             </IconButton>
-            <IconButton aria-label="DKK" className="button-no-focus">
+            <IconButton aria-label="DKK" className="button-no-focus" onClick={() => clickHandler('DKK')}>
               <img src={Flag_DKK} alt="DKK" height="25px"/>
             </IconButton>
           </Grid>

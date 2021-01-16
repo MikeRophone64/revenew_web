@@ -47,24 +47,6 @@ const useStyles = makeStyles((theme) => ({
 export default function MainInterface() {
   const classes = useStyles();
 
-  const [hotels, setHotels] = useState()
-
-  useEffect(() => {
-    fetch('/api/hotels?format=json')
-    .then(response => response.json())
-    .then(data => {
-        const hotelsList = data.map(item => {
-            return item
-        })
-        console.log("FETCHING HOTELS")
-        console.log(hotelsList)
-        setHotels(hotelsList)
-    });
-  }, [])
-
-
-  
-
   return (
     <div className={classes.root}>
       <CssBaseline />
