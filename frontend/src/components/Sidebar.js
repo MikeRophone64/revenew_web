@@ -1,13 +1,16 @@
-import React, { Component, useState } from 'react';
+import React, { useContext, useState } from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
 import { Container, Typography } from '@material-ui/core';
+import StoreContext from '../contexts/storeContexts';
+import { loadCityTax } from '../store/cityTax';
 
 
 export default function Sidebar() {
+    const store = useContext(StoreContext);
     
     const checkPartyMix = () => {
         const adults = document.getElementById("num_adults");
@@ -31,7 +34,9 @@ export default function Sidebar() {
         price.value = price.value < 0 ? 0 : price.value;
 
     }
-    
+
+    store.dispatch(loadCityTax);
+
     return (
         <Container>
             <MyDate className="button-no-focus"/>
