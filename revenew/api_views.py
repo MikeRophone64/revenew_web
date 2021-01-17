@@ -13,7 +13,6 @@ class HotelList(ListAPIView):
 
 
 class TaxList(ListAPIView):
-    # queryset = CityTax.objects.all()
     serializer_class = TaxSerializer
 
     def get_queryset(self):
@@ -23,8 +22,6 @@ class TaxList(ListAPIView):
 
         url_date = date.fromisoformat(self.kwargs['start_date'])
         seasons = Season.objects.all()
-
-        # still need to catch date out of range error
 
         selected_season = Season.objects.get(start_date__lte=url_date, end_date__gt=url_date)
         return CityTax.objects.filter(season__title=selected_season)

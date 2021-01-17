@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Logo from '../../static/images/ReveNewLogo.png';
 import Toolbar from '@material-ui/core/Toolbar';
+import * as actions from '../store/api';
 
 import Flag_EUR from '../../static/images/FlagIcons/EUR.svg';
 import Flag_GBP from '../../static/images/FlagIcons/GBP.svg';
@@ -29,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const store = configureStore();
+
+store.dispatch(actions.apiCallBegan({
+  url: 'api/tax/2021-03-30',
+  onSuccess: 'dataReceived',
+}));
+
 
 export default function HeadeNavigation() {
   const classes = useStyles();
@@ -58,7 +65,7 @@ export default function HeadeNavigation() {
               <img src={Flag_DKK} alt="DKK" height="25px"/>
             </IconButton>
           </Grid>
-          <Button color="inherit">Change Price</Button>
+          <Button color="inherit">Call Rates</Button>
         </Toolbar>
       </AppBar>
   );

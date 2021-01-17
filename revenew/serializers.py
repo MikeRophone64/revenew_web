@@ -11,12 +11,12 @@ class HotelSerializer(serializers.ModelSerializer):
 
 
 class TaxSerializer(serializers.ModelSerializer):
-    hotel = serializers.CharField(source="hotel.name")
+    hotel = serializers.CharField(source="hotel.abbrev")
     season = serializers.CharField(source="season.title")
 
     class Meta:
         model = CityTax
-        fields = '__all__'
+        exclude = ['id']
 
 
 class SeasonSerializer(serializers.ModelSerializer):
