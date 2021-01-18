@@ -69,7 +69,7 @@ class CityTax(models.Model):
         verbose_name_plural = "City Taxes"
         
     season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)
-    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE, related_name="tax")
     EUR = models.DecimalField(max_digits=5, decimal_places=2)
     DKK = models.DecimalField(max_digits=5, decimal_places=2)
     CHF = models.DecimalField(max_digits=5, decimal_places=2)
@@ -77,7 +77,7 @@ class CityTax(models.Model):
     USD = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return "Tax:" + self.hotel.name
+        return self.season.title
 
 
 class Error(models.Model):

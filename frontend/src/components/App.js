@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import StoreContext from '../contexts/storeContexts';
-
+import { Provider } from 'react-redux';
 import MainInterface from "./MainInterface"
 import Container from '@material-ui/core/Container';
 import HeaderNav from './HeaderNav';
@@ -11,12 +10,12 @@ const store = configureStore()
 
 function App() {
     return (
-        <StoreContext.Provider value={store}>
+        <Provider store={store}>
             <Container fixed disableGutters={true}>
                 <HeaderNav />
                 <MainInterface/>
             </Container>
-        </StoreContext.Provider>
+        </Provider>
     )
 }
 

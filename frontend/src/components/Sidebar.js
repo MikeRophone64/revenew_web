@@ -1,17 +1,19 @@
-import React, { useContext, useState } from 'react';
-// import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
+import React, { useContext, useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import MyDate from './datepicker';
-import { Container, Typography } from '@material-ui/core';
-import StoreContext from '../contexts/storeContexts';
+import { Container, Divider, Typography } from '@material-ui/core';
 import { loadCityTax } from '../store/cityTax';
+import { useSelector } from 'react-redux';
 
 
 export default function Sidebar() {
-    const store = useContext(StoreContext);
-    
+
+    const hotel = useSelector(state => state.selectors.hotels.selectedHotel);
+    const currency = useSelector(state => state.selectors.currency.selectedCurrency);
+    const rate = useSelector(state => state.rates.Tax.DisneyHotels)
+    useEffect(() => {
+    });
+
     const checkPartyMix = () => {
         const adults = document.getElementById("num_adults");
         const teens = document.getElementById("num_teens");
@@ -35,7 +37,7 @@ export default function Sidebar() {
 
     }
 
-    store.dispatch(loadCityTax);
+    // store.dispatch(loadCityTax);
 
     return (
         <Container>
@@ -65,6 +67,18 @@ export default function Sidebar() {
                 label="Room Price"
                 type="number"
             />
+            <Typography>
+                Hotel: {hotel}
+            </Typography>
+            <Typography>
+                Currency: {currency}
+            </Typography>
+            <Divider variant="middle"/>
+            <Typography>
+                PRICE: {rate.map(item => item.EUR)}
+            </Typography>
+
+
         </Container>
     )
 }

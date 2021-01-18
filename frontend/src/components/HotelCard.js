@@ -1,20 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import StoreContext from '../contexts/storeContexts';
 import { hotelChanged } from '../store/hotels';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function HotelCard(props) {
-
-  const store = useContext(StoreContext);
-  const [activeClass, setActiveClass] = useState(false)
+  const dispatch = useDispatch();
 
   const handleClick = (hotel) => {
-    store.dispatch(hotelChanged({ selectedHotel: hotel }))
+    dispatch(hotelChanged({ selectedHotel: hotel }))
   }
 
   return (

@@ -13,7 +13,7 @@ import Flag_CHF from '../../static/images/FlagIcons/CHF.svg';
 import Flag_DKK from '../../static/images/FlagIcons/DKK.svg';
 import Flag_USD from '../../static/images/FlagIcons/USD.svg';
 import { currencyChanged } from '../store/currency';
-import StoreContext from '../contexts/storeContexts';
+import { connect, useDispatch } from 'react-redux';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function HeadeNavigation() {
-  const store = useContext(StoreContext);
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  
   const clickHandler = (currency) => {
-    store.dispatch(currencyChanged({ selectedCurrency: currency }));
+    dispatch(currencyChanged({ selectedCurrency: currency }));
   }
 
   return (
@@ -57,7 +57,6 @@ export default function HeadeNavigation() {
               <img src={Flag_DKK} alt="DKK" height="25px"/>
             </IconButton>
           </Grid>
-          <Button color="inherit">Call Rates</Button>
         </Toolbar>
       </AppBar>
   );

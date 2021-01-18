@@ -4,8 +4,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from revenew.serializers import HotelSerializer, SeasonSerializer, TaxSerializer
 from revenew.models import Hotels, CityTax, Season, Error
-
 from revenew.error import catch
+
 
 class HotelList(ListAPIView):
     queryset = Hotels.objects.all().order_by('-stars')
@@ -23,10 +23,11 @@ class TaxList(ListAPIView):
         url_date = date.fromisoformat(self.kwargs['start_date'])
         seasons = Season.objects.all()
 
-        selected_season = Season.objects.get(start_date__lte=url_date, end_date__gt=url_date)
+        selected_season = Season.objects.get(
+            start_date__lte=url_date, end_date__gt=url_date)
         return CityTax.objects.filter(season__title=selected_season)
 
-    
+
 class SeasonList(ListAPIView):
     queryset = Season.objects.all()
     serializer_class = SeasonSerializer

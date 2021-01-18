@@ -1,18 +1,15 @@
 import 'date-fns';
 import React, { useState, useEffect, useContext } from 'react';
-import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import StoreContext from '../contexts/storeContexts';
 import { loadCityTax } from '../store/cityTax';
+import { useDispatch } from 'react-redux';
 
 export default function MyDate() {
-
-  const store = useContext(StoreContext);
+  const dispatch = useDispatch();
 
   const now = Date.now()
   const [selectedDate, setSelectedDate] = React.useState(new Date(now));
@@ -22,9 +19,15 @@ export default function MyDate() {
     setSelectedDate(date);
     
     const formatedDate = date.toISOString().split('T')[0]
-    store.dispatch(loadCityTax(formatedDate));
+    dispatch(loadCityTax(formatedDate)); // Called to update the rates in the store
   };
+  
+  // initail API Call to get rates
+  useEffect(() => {
+    dispatch(loadCityTax(selectedDate.toISOString().split('T')[0]))
+  }, [])
 
+  // Find MaxDate: Calls API every time the date changes
   useEffect(() => {
     // fetch seasons
     const url = 'api/seasons?format=json'
@@ -40,7 +43,7 @@ export default function MyDate() {
       }
       setEndDate(maxDate)
     })
-  })
+  }, [selectedDate])
 
 
   return (
