@@ -1,29 +1,35 @@
 $border-color: rgb(200, 200, 200);
+$disney-blue: rgb(0, 0, 80);
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #main {
-    // background-color: red;
-    height: 100vh;
+  // background-color: red;
+  height: 100vh;
 }
 
 .main-content {
-    margin-top: 65px;
+  margin-top: 65px;
 }
 
 .sidebar {
-    background-color: blue;
+  background-color: blue;
 }
 
 .content {
-    overflow: scroll;
-    margin: 0px
+  overflow: scroll;
+  margin: 0px;
 }
 
 .button-no-focus:focus {
-    outline: none;
+  outline: none;
+}
+
+.activeCard {
+  border: 10px red !important;
 }
